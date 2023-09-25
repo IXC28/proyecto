@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Agregar</title>
+</head>
+<body class="bg-#F5F5F3">
+    <nav id="navbar" class="fixed top-0 right-0 left-0 bg-#EBA7A8/90 h-16">
+
+    </nav>
+
+    <div class="container mx-auto py-8 pt-20">
+
+        <div class="container mx-auto py-8">
+            <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+              <h2 class="text-2xl font-semibold mb-4">Seleccionar Categoría:</h2>
+          
+              <!-- Select con opciones -->
+              <div class="mb-6">
+                <label for="categoria" class="block text-gray-700 font-bold mb-2">Categoría:</label>
+                <select id="categoria" name="categoria" class="border border-gray-300 px-3 py-2 rounded-lg w-full">
+                <option value="default" Selected disabled>Seleccione una opcion</option>
+                <option value="servicios">Servicios</option>
+                  <option value="paquetes">Paquetes</option>
+                  <option value="galeria">Galería</option>
+                  <option value="consejos">Consejos Y Tips</option>
+                  <option value="productos">Productos</option>
+                  <option value="promociones">Promociones</option>
+                </select>
+              </div>
+          
+              <!-- Botón de enviar (solo para ejemplo) -->
+              <div class="text-center">
+                <button id="select-btn" type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+                  Seleccionar
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+          <h2 id="categoria-title" class="text-2xl font-semibold mb-4">Selecciona una Categoria</h2>
+      
+          <!-- Formulario para agregar productos -->
+          <form id="form" method="post" enctype="multipart/form-data">
+                <button id="agregar-btn" type="submit">
+                </button>
+              </div>
+          </form>
+          
+        </div>
+      </div>
+      
+
+    <script src="/components/nav.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
