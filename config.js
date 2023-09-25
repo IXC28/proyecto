@@ -1,5 +1,5 @@
 const PAGE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://todo-list-prueba-ivwm.onrender.com'
+  ? 'https://cuidados-faciales.onrender.com'
   : 'http://localhost:3003';
 
 const MONGO_URI = process.env.NODE_ENV === 'production'
