@@ -41,6 +41,8 @@ app.use('/login', express.static(path.resolve('view', 'login')));
 app.use('/carrito', express.static(path.resolve('view', 'carrito')));
 app.use('/products', express.static(path.resolve('view', 'productos')));
 app.use('/agregar', express.static(path.resolve('view', 'agregar')));
+app.use('/paquetes&servicios', express.static(path.resolve('view', 'ServiciosYPaquetes')));
+
 
 app.use('/styles', express.static(path.resolve('view', 'styles')));
 app.use('/components', express.static(path.resolve('view', 'components')));

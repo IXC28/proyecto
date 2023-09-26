@@ -28,7 +28,7 @@ const createNavSiLogin = () => {
 
   <div class="hidden lg:flex flex-row gap-2">
 
-      <a href="/packs-services" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out whitespace-normal flex items-center justify-center">Paquetes Y Servicios</a>
+      <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out whitespace-normal flex items-center justify-center">Paquetes Y Servicios</a>
       <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Galeria</a>
       <a href="/consejos" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Consejos Y Tips</a>
       <a href="/products" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Productos</a>
@@ -47,7 +47,7 @@ const createNavSiLogin = () => {
 
   <div class="bg-#EBA7A8/90 fixed top-16 right-0 left-0 bottom-0 flex-col gap-2 transition-all duration-500 ease-in-out w-0 flex items-end">
 
-  <a href="/packs-services" class="text-black font-bold hover:text-#188196  py-2 px-2 transition ease-in-out whitespace-normal flex items-center justify-center rounded-lg border-gray-700/70 border-b-2">Paquetes Y Servicios</a>
+  <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196  py-2 px-2 transition ease-in-out whitespace-normal flex items-center justify-center rounded-lg border-gray-700/70 border-b-2">Paquetes Y Servicios</a>
   <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Galeria</a>
   <a href="/consejos" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Consejos Y Tips</a>
   <a href="/products" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Productos</a>
@@ -88,7 +88,7 @@ const createNavNoLogin = () => {
 
   <div class="hidden lg:flex flex-row gap-2">
 
-      <a href="/packs-services" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out whitespace-normal flex items-center justify-center">Paquetes Y Servicios</a>
+      <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out whitespace-normal flex items-center justify-center">Paquetes Y Servicios</a>
       <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Galeria</a>
       <a href="/consejos" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Consejos Y Tips</a>
       <a href="/products" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Productos</a>
@@ -108,7 +108,7 @@ const createNavNoLogin = () => {
 
   <div class="bg-#EBA7A8/90 fixed top-16 right-0 left-0 bottom-0 flex-col gap-2 transition-all duration-500 ease-in-out w-0 flex items-end">
 
-  <a href="/packs-services" class="text-black font-bold hover:text-#188196  py-2 px-2 transition ease-in-out whitespace-normal flex items-center justify-center rounded-lg border-gray-700/70 border-b-2">Paquetes Y Servicios</a>
+  <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196  py-2 px-2 transition ease-in-out whitespace-normal flex items-center justify-center rounded-lg border-gray-700/70 border-b-2">Paquetes Y Servicios</a>
   <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Galeria</a>
   <a href="/consejos" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Consejos Y Tips</a>
   <a href="/products" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Productos</a>
@@ -188,6 +188,14 @@ const createNavNoLogin = () => {
       createNavNoLogin();
     }
     
+  }else if (window.location.pathname === '/paquetes&servicios/') {
+
+    if (logiado) {-
+      createNavSiLogin();
+    } else {
+      createNavNoLogin();
+    }
+    
   }
   
 
@@ -232,22 +240,22 @@ const closeBtnDesktop = navbar.children[0].children[2].children[0];
 const closeBtnMobile = navbar.children[0].children[3].children[0];
 
 
-closeBtnDesktop.addEventListener('click', async e => {
-  try {
-    await axios.get('/api/logout');
-    window.location.pathname = '/login';
-  } catch (error) {
-    console.log(error);
-  }
-});
-closeBtnMobile.addEventListener('click', async e => {
-  try {
-    await axios.get('/api/logout');
-    window.location.pathname = '/login';
-  } catch (error) {
-    console.log(error);
-  }
-});
+// closeBtnDesktop.addEventListener('click', async e => {
+//   try {
+//     await axios.get('/api/logout');
+//     window.location.pathname = '/login';
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+// closeBtnMobile.addEventListener('click', async e => {
+//   try {
+//     await axios.get('/api/logout');
+//     window.location.pathname = '/login';
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 const cerrarBtn  = document.querySelectorAll('#cerrar');
 
