@@ -1,5 +1,6 @@
 const agregarRouter = require('express').Router();
 const Product = require('../models/products');
+const Servicio = require('../models/servicios');
 
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -44,7 +45,25 @@ agregarRouter.post('/', upload.single('imagen'), async (request, response) => {
         await newProduct.save();
 
         return response.status(201).json('Se creo un nuevo producto');
-    }
+
+    }else if(request.body.categoria === 'servicios'){
+      const  titulo = request.body.titulo;
+      const descripcion  = request.body.descripcion;
+      const  image = '/'+ request.file.destination +'/'+ request.file.filename;
+      const  price = request.body.precio;
+
+
+      const newService = new Servicio({
+          titulo: titulo,
+          descripcion: descripcion,
+          image: image,
+          price: price,
+      })
+
+      await newService.save();
+
+      return response.status(201).json('Se creo un nuevo servicio');
+  }
 });
 
 module.exports = agregarRouter;

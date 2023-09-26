@@ -17,6 +17,7 @@ const { role } = require('./middleware/role');
 const navRouter = require('./controllers/navs');
 const addRouter = require('./controllers/adds');
 const agregarRouter = require('./controllers/agregar');
+const serviciosRouter = require('./controllers/servicios');
 
 
 (async () => {
@@ -66,6 +67,8 @@ app.use('/api/adds', userExtractor, role, addRouter);
 app.use('/api/agregar', userExtractor, role, agregarRouter);
 app.use('/api/carrito', userExtractor, carritoRouter);
 app.use('/api/products', userExtractor, role, productRouter);
+app.use('/api/servicios', userExtractor, role, serviciosRouter);
+
 
 
 
