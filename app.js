@@ -18,6 +18,8 @@ const navRouter = require('./controllers/navs');
 const addRouter = require('./controllers/adds');
 const agregarRouter = require('./controllers/agregar');
 const serviciosRouter = require('./controllers/servicios');
+const Paquetes = require('./models/paquetes');
+const paquetesRouter = require('./controllers/paquetes');
 
 
 (async () => {
@@ -43,7 +45,7 @@ app.use('/carrito', express.static(path.resolve('view', 'carrito')));
 app.use('/products', express.static(path.resolve('view', 'productos')));
 app.use('/agregar', express.static(path.resolve('view', 'agregar')));
 app.use('/paquetes&servicios', express.static(path.resolve('view', 'ServiciosYPaquetes')));
-
+app.use('/galery', express.static(path.resolve('view', 'galeria')));
 
 app.use('/styles', express.static(path.resolve('view', 'styles')));
 app.use('/components', express.static(path.resolve('view', 'components')));
@@ -68,6 +70,7 @@ app.use('/api/agregar', userExtractor, role, agregarRouter);
 app.use('/api/carrito', userExtractor, carritoRouter);
 app.use('/api/products', userExtractor, role, productRouter);
 app.use('/api/servicios', userExtractor, role, serviciosRouter);
+app.use('/api/paquetes', userExtractor, role, paquetesRouter);
 
 
 

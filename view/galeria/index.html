@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Carrito</title>
+</head>
+<body class="bg-#F5F5F3">
+
+    <nav id="navbar" class="fixed top-0 right-0 left-0 bg-#EBA7A8/90 h-16">
+
+    </nav>
+
+     <div class="container mx-auto py-8 pt-20">
+
+        <h1 class="text-3xl font-semibold mb-8 text-center">Galería Antes y Después</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Comparación 1 -->
+            <div class="border border-gray-300 p-4 flex flex-col items-center rounded-md">
+                <div class="flex mb-2">
+                    <div class="text-center mb-2">
+                        <p class="text-2xl">Antes</p>
+                        <img src="/img/mascarillas.jpg" alt="Antes" class="w-48 h-48 rounded-md">
+                    </div>
+                    <div class="text-center mb-2">
+                        <p class="text-2xl">Despues</p>
+                        <img src="/img/rejuven.jpg" alt="Despues" class="w-48 h-48 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparación 2 -->
+            <div class="border border-gray-300 p-4 flex flex-col items-center rounded-md">
+                <div class="flex mb-2">
+                    <div class="text-center mb-2">
+                        <p class="text-2xl">Antes</p>
+                        <img src="/img/mascarillas.jpg" alt="Antes" class="w-48 h-48 rounded-md">
+                    </div>
+                    <div class="text-center mb-2">
+                        <p class="text-2xl">Despues</p>
+                        <img src="/img/rejuven.jpg" alt="Despues" class="w-48 h-48 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+                      <!-- Comparación 3 -->
+            <div class="border border-gray-300 p-4 flex flex-col items-center rounded-md">
+                <div class="flex mb-2">
+                    <div class="text-center mb-2">
+                        <p class="text-2xl">Antes</p>
+                        <img src="/img/mascarillas.jpg" alt="Antes" class="w-48 h-48 rounded-md">
+                    </div>
+                    <div class="text-center mb-2">
+                        <p class="text-2xl">Despues</p>
+                        <img src="/img/rejuven.jpg" alt="Despues" class="w-48 h-48 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agrega más comparaciones aquí según sea necesario -->
+        </div>
+
+    </div>
+
+    <div id="contact-wsp" class="fixed bottom-4 right-4 flex flex-col items-center space-y-2">
+
+    </div>
+
+    <div id="notification" class="fixed top-20 left-0 right-0">
+
+    </div>
+    
+    <script src="/components/add.js"></script>
+    <script src="/components/contactWsp.js"></script>
+    <script src="/components/nav.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="../components/notification.js"></script>
+</body>
+</html>

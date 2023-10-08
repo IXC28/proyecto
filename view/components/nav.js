@@ -132,73 +132,21 @@ const createNavNoLogin = () => {
   logiado = data.logiado;
 
 
-  if (window.location.pathname === '/') {
+  // if (window.location.pathname === '/') {
 
-      if (logiado) {-
-        createNavSiLogin();
-      } else {
-        createNavNoLogin();
-      }
+  //     if (logiado) {-
+  //       createNavSiLogin();
+  //     } else {
+  //       createNavNoLogin();
+  //     }
 
-  } else if (window.location.pathname === '/signup/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-
-  } else if (window.location.pathname === '/login/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-
-  } else if (window.location.pathname === '/todos/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-
-  } else if (window.location.pathname === '/carrito/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-
-  }else if (window.location.pathname === '/products/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-    
-  }else if (window.location.pathname === '/agregar/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-    
-  }else if (window.location.pathname === '/paquetes&servicios/') {
-
-    if (logiado) {-
-      createNavSiLogin();
-    } else {
-      createNavNoLogin();
-    }
-    
-  }
+  // } 
   
-
+  if (logiado) {-
+    createNavSiLogin();
+  } else {
+    createNavNoLogin();
+  }
 
 const body = navbar.parentElement;
 const navBtn = navbar.children[0].children[1];

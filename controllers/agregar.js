@@ -1,4 +1,5 @@
 const agregarRouter = require('express').Router();
+const Paquetes = require('../models/paquetes');
 const Product = require('../models/products');
 const Servicio = require('../models/servicios');
 
@@ -63,7 +64,25 @@ agregarRouter.post('/', upload.single('imagen'), async (request, response) => {
       await newService.save();
 
       return response.status(201).json('Se creo un nuevo servicio');
-  }
+  }else if(request.body.categoria === 'paquetes'){
+    const  titulo = request.body.titulo;
+    const descripcion  = request.body.descripcion;
+    const  image = '/'+ request.file.destination +'/'+ request.file.filename;
+    const  price = request.body.precio;
+
+
+    const newPack = new Paquetes({
+        titulo: titulo,
+        descripcion: descripcion,
+        image: image,
+        price: price,
+    })
+
+    await newPack.save();
+
+    return response.status(201).json('Se creo un nuevo paquete');
+}
+
 });
 
 module.exports = agregarRouter;
