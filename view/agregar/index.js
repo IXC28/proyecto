@@ -175,6 +175,7 @@ form.addEventListener("submit", async (e) => {
           formData.append('categoria', 'servicios');
 
           try {
+            console.log('/api/agregar');
             await axios.post('/api/agregar', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
