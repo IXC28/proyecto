@@ -30,9 +30,7 @@ const createNavSiLogin = () => {
 
       <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out whitespace-normal flex items-center justify-center">Paquetes Y Servicios</a>
       <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Galeria</a>
-      <a href="/consejos" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Consejos Y Tips</a>
       <a href="/products" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Productos</a>
-      <a href="/promos" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Promociones</a>
       <a href="/carrito" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out mr-3">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -49,9 +47,7 @@ const createNavSiLogin = () => {
 
   <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196  py-2 px-2 transition ease-in-out whitespace-normal flex items-center justify-center rounded-lg border-gray-700/70 border-b-2">Paquetes Y Servicios</a>
   <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Galeria</a>
-  <a href="/consejos" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Consejos Y Tips</a>
   <a href="/products" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Productos</a>
-  <a href="/promos" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Promociones</a>
   <a href="/contact" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Contact</a>
   <a href="/carrito" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out mr-3 border-gray-700/70 border-b-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 border-gray-700/70 border-b-2">
@@ -90,9 +86,7 @@ const createNavNoLogin = () => {
 
       <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out whitespace-normal flex items-center justify-center">Paquetes Y Servicios</a>
       <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Galeria</a>
-      <a href="/consejos" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Consejos Y Tips</a>
       <a href="/products" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Productos</a>
-      <a href="/promos" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out">Promociones</a>
       <a href="/carrito" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out mr-3">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -110,9 +104,7 @@ const createNavNoLogin = () => {
 
   <a href="/paquetes&servicios" class="text-black font-bold hover:text-#188196  py-2 px-2 transition ease-in-out whitespace-normal flex items-center justify-center rounded-lg border-gray-700/70 border-b-2">Paquetes Y Servicios</a>
   <a href="/galery" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Galeria</a>
-  <a href="/consejos" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Consejos Y Tips</a>
   <a href="/products" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Productos</a>
-  <a href="/promos" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Promociones</a>
   <a href="/contact" class="text-black font-bold hover:text-#188196 py-2 px-2 rounded-lg transition ease-in-out border-gray-700/70 border-b-2">Contact</a>
   <a href="/carrito" class="text-black font-bold hover:text-#188196  py-2 px-2 rounded-lg transition ease-in-out mr-3 border-gray-700/70 border-b-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 border-gray-700/70 border-b-2">
