@@ -129,6 +129,30 @@ selectBtn.addEventListener("click", async(e) => {
     </div>
     `;
 
+} else   if (Categoriaselect === "galeria")   {
+  categoriaTitle.innerText = `Agregar Galeria`;
+  form.innerHTML = ``;
+  form.innerHTML = `
+  <!-- Campo de imagen -->
+  <div class="mb-4">
+    <label for="imagen-before" class="block text-gray-700 font-bold mb-2">Imagen Antes:</label>
+    <input type="file" id="imagen-before" name="imagen-before" accept="image/*" class="border border-gray-300 px-3 py-2 rounded-lg w-full" required>
+  </div>
+  <!-- Campo de imagen -->
+  <div class="mb-4">
+    <label for="imagen-after" class="block text-gray-700 font-bold mb-2">Imagen Despues:</label>
+    <input type="file" id="imagen-after" name="imagen-after" accept="image/*" class="border border-gray-300 px-3 py-2 rounded-lg w-full" required>
+  </div>
+  
+  <!-- Botón de enviar -->
+  <div class="text-center">
+    <button id="agregar-btn" type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+      Agregar Galeria
+    </button>
+  </div>
+  
+  `;
+
 }
 });
 
@@ -208,8 +232,28 @@ form.addEventListener("submit", async (e) => {
           console.log(error);
           }
 
-        }
+        }else if (Categoriaselect === 'galeria') {
+          const imagenBefore = document.querySelector('#imagen-before').files[0]; 
+          const imagenAfter = document.querySelector('#imagen-after').files[0]; 
+      
+          const formData = new FormData();
+          formData.append('imagen', imagenBefore);
+          formData.append('imagen', imagenAfter);
+          formData.append('categoria', 'galeria');
+
+          
+          try {
+            const response = await axios.post('/api/agregar', formData, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            });
+            console.log(response.data); // Maneja la respuesta del servidor aquí
+          } catch (error) {
+              console.log(error);
+          }
+      }
     
 
         form.innerHTML = '';
-});
+});          

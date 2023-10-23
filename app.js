@@ -20,6 +20,7 @@ const agregarRouter = require('./controllers/agregar');
 const serviciosRouter = require('./controllers/servicios');
 const Paquetes = require('./models/paquetes');
 const paquetesRouter = require('./controllers/paquetes');
+const galeriaRouter = require('./controllers/galeria');
 
 
 (async () => {
@@ -71,6 +72,8 @@ app.use('/api/carrito', userExtractor, carritoRouter);
 app.use('/api/products', userExtractor, role, productRouter);
 app.use('/api/servicios', userExtractor, role, serviciosRouter);
 app.use('/api/paquetes', userExtractor, role, paquetesRouter);
+app.use('/api/galeria', userExtractor, role, galeriaRouter);
+
 
 
 

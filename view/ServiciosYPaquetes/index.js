@@ -23,7 +23,7 @@ const whatsappNumber = "+584242410187";
         <h3 class="text-xl font-semibold text-gray-900 mb-2">${servicios.titulo}</h3>
         <p class="text-gray-700 mb-2">${servicios.descripcion}</p>
         <p class="text-green-600 font-semibold text-xl">$${servicios.price}</p>
-        <a id="link-wsp" href="" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg flex items-center mt-4">
+        <a id="link-wsp" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg flex items-center mt-4 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
               </svg>
@@ -61,14 +61,28 @@ const whatsappNumber = "+584242410187";
                  const linkWsp = document.querySelector('#link-wsp');
 
                 
-                const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                if (isMobileDevice) {
-                    linkWsp.href = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${servicios.titulo}.
-                    Con un precio total de : $${servicios.price}`;
-                } else {
-                  linkWsp.href = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${servicios.titulo}.
-                  Con un precio total de : $${servicios.price}`;
-                }
+                // const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                // if (isMobileDevice) {
+                //     linkWsp.href = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${servicios.titulo}.
+                //     Con un precio total de : $${servicios.price}`;
+                // } else {
+                //   linkWsp.href = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${servicios.titulo}.
+                //   Con un precio total de : $${servicios.price}`;
+                // }
+
+                linkWsp.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+                    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    let whatsappUrl;
+                
+                    if (isMobileDevice) {
+                        whatsappUrl = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${servicios.titulo}. Con un precio total de: $${servicios.price}`;
+                    } else {
+                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${servicios.titulo}. Con un precio total de: $${servicios.price}`;
+                    }
+                
+                    window.open(whatsappUrl, '_blank'); // Abrir enlace en una nueva ventana o pestaña
+                });
                    
         });
 
@@ -93,7 +107,7 @@ const whatsappNumber = "+584242410187";
         <h3 class="text-xl font-semibold text-gray-900 mb-2">${paquete.titulo}</h3>
         <p class="text-gray-700 mb-2">${paquete.descripcion}</p>
         <p class="text-green-600 font-semibold text-xl">$${paquete.price}</p>
-        <a id="link-wsp-packs" href="" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg flex items-center mt-4">
+        <a id="link-wsp-packs" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg flex items-center mt-4 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
               </svg>
@@ -131,14 +145,28 @@ const whatsappNumber = "+584242410187";
                  const linkWsp = document.querySelector('#link-wsp-packs');
 
                 
-                const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                if (isMobileDevice) {
-                    linkWsp.href = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${paquete.titulo}.
-                    Con un precio total de : $${paquete.price}`;
-                } else {
-                  linkWsp.href = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${paquete.titulo}.
-                  Con un precio total de : $${paquete.price}`;
-                }
+                // const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                // if (isMobileDevice) {
+                //     linkWsp.href = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${paquete.titulo}.
+                //     Con un precio total de : $${paquete.price}`;
+                // } else {
+                //   linkWsp.href = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${paquete.titulo}.
+                //   Con un precio total de : $${paquete.price}`;
+                // }
+
+                linkWsp.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+                    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    let whatsappUrl;
+                
+                    if (isMobileDevice) {
+                        whatsappUrl = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${paquete.titulo}. Con un precio total de: $${paquete.price}`;
+                    } else {
+                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${paquete.titulo}. Con un precio total de: $${paquete.price}`;
+                    }
+                
+                    window.open(whatsappUrl, '_blank'); // Abrir enlace en una nueva ventana o pestaña
+                }); 
                    
         });
 
