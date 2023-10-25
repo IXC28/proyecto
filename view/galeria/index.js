@@ -9,7 +9,6 @@ const container = document.querySelector('#container');
 
     const rol = data.rol;  
     const galeria = data.galeria;
-    console.log(galeria[0].imageBefore);
 
     
     galeria.forEach(galery => {
@@ -60,3 +59,31 @@ const container = document.querySelector('#container');
 
         
 })();
+
+
+container.addEventListener('click', async e => {
+  e.preventDefault();
+
+  const { data } = await axios.get('/api/galeria');
+  const logiado = data.logiado;
+
+  if (e.target.closest('#delete-btn')) {  
+    const button = e.target.closest('#delete-btn');
+    const imgSrc1 = button.parentElement.parentElement.children[0].children[0].children[1].src;
+    const split = imgSrc1.split('/');
+    const imgName1 = split[split.length - 1];
+    const imgSrc2 = button.parentElement.parentElement.children[0].children[1].children[1].src;
+    const split2 = imgSrc2.split('/');
+    const imgName2 = split2[split2.length - 1];
+    console.log(imgName1, imgName2);
+
+    button.parentElement.parentElement.remove();
+
+
+
+    await axios.delete(`/api/galeria/${button.parentElement.parentElement.id}`, { data: { imgName1: imgName1,imgName2: imgName2  } });
+
+    }
+
+
+});
