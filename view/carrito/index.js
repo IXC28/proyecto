@@ -4,9 +4,27 @@ const preciosTotales = document.querySelector('#precio-total');
 const precios = document.querySelector('#price');
 const deleteBtn = document.querySelector('#delete-btn');
 const linkWsp = document.querySelector('#link-wsp');
+let totalProducts = 0;
+
 (async () => {
 
     const { data } = await axios.get('/api/carrito');
+
+    console.log(data);
+
+    const log = data.logiado;   
+
+    if (log === false) {
+              window.location.href = '/';
+       }
+
+})();
+
+(async () => {
+
+    const { data } = await axios.get('/api/carrito');
+
+
     data.forEach(products => {
     const div = document.createElement('div');
     div.id = products.id;
@@ -38,27 +56,34 @@ const linkWsp = document.querySelector('#link-wsp');
     const precioTotal = data.reduce((total, producto) => total + producto.price, 0);
     preciosTotales.innerHTML= `$${precioTotal}`;
     total.innerHTML = data.length;
+    totalProducts = data.length;
+
 
     const titulos = data.map((product) => product.titulo);
     const titulosComoString = titulos.join(', ');
     
     console.log(titulosComoString);
-    
-    const whatsappNumber = "+584242410187";
-    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (isMobileDevice) {
-        linkWsp.href = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${titulosComoString}.
-        Con un precio total de : $${precioTotal}`;
-    } else {
-      linkWsp.href = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar : ${titulosComoString}.
-      Con un precio total de : $${precioTotal}`;
+
+    if (    total.innerHTML > 0  ) {
+        const whatsappNumber = "+584242410187";
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobileDevice) {
+            linkWsp.href = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${titulosComoString}.
+            Con un precio total de : $${precioTotal}`;
+        } else {
+          linkWsp.href = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar : ${titulosComoString}.
+          Con un precio total de : $${precioTotal}`;
+        }
+    }else{
+        linkWsp.children[1].innerHTML = 'Agregar productos';
+        linkWsp.href = '/carrito';
     }
+    
+console.log(linkWsp.children[1]);
 
 
 
 })();
-
-
 
 
 

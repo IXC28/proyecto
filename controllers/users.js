@@ -54,14 +54,28 @@ usersRouter.post('/', async (request, response) => {
     },
   });
 
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER, // sender address
-    to: savedUser.email, // list of receivers
-    subject: 'Hello ✔', // Subject lines
-    text: 'Verificacion de usuario', // plain text body
-    html: `<a href="${PAGE_URL}/verify/${savedUser.id}/${token}">Verificar Correo</a>`, // html body
+  // await transporter.sendMail({
+  //   from: process.env.EMAIL_USER, // sender address
+  //   to: savedUser.email, // list of receivers
+  //   subject: 'Hello ✔', // Subject lines
+  //   text: 'Verificacion de usuario', // plain text body
+  //   html: `<a href="${PAGE_URL}/verify/${savedUser.id}/${token}">Verificar Correo</a>`, // html body
 
-  });
+  // });
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: savedUser.email,
+    subject: '¡Verificación de Usuario!',
+    text: '¡Gracias por registrarte en nuestro sitio! Haz clic en el siguiente enlace para verificar tu correo electrónico:',
+    html: `
+        <div class="bg-blue-500 text-white p-6 rounded-lg">
+            <h1 class="text-2xl mb-4">¡Bienvenido a nuestro sitio!</h1>
+            <p class="mb-4">Gracias por registrarte en nuestro sitio. Por favor, haz clic en el siguiente enlace para verificar tu correo electrónico:</p>
+            <a href="${PAGE_URL}/verify/${savedUser.id}/${token}" class="bg-white text-blue-500 px-4 py-2 rounded-lg hover:bg-blue-200">Verificar Correo Electrónico</a>
+        </div>
+    `,
+});
 
   return response.status(201).json('Usuario creado. Porfavor verifica tu correo');
 

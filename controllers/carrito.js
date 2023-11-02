@@ -10,7 +10,7 @@ carritoRouter.get('/', async (request, response) => {
         
     
     if (!logiado) {
-        return response.status(401).json({error: 'Debes iniciar sesion'});
+        return response.status(200).json({logiado});
     }
     const user = request.user;
     const carritoId = user.carrito;
