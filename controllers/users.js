@@ -122,9 +122,9 @@ usersRouter.patch('/:id/:token', async (request, response) => {
     await transporter.sendMail({
       from: process.env.EMAIL_USER, // sender address
       to: email, // list of receivers
-      subject: 'Hello ✔', // Subject line
-      text: 'Verificacion de usuario', // plain text body
-      html: `<a href="${PAGE_URL}/verify/${id}/${token}">Verificar Correo</a>`, // html body
+      subject: 'ReVerificacion de Usuario!',
+      text: '¡Tu link ha expirado quieres volver a intentarlo?!:', // plain text body
+      html: `<a href="${PAGE_URL}/verify/${id}/${token}">Volver a Verificar Correo</a>`, // html body
 
     });
 
