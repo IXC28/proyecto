@@ -76,7 +76,7 @@ let totalProducts = 0;
         }
     }else{
         linkWsp.children[1].innerHTML = 'Agregar productos';
-        linkWsp.href = '/carrito';
+        linkWsp.href = '/products';
     }
     
 console.log(linkWsp.children[1]);
