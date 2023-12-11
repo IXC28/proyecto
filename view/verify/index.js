@@ -1,5 +1,16 @@
 const textInfo = document.querySelector('#text-info');
 
+(async () => {
+
+  const { data } = await axios.get('/api/agregar');
+
+  const rol = data.rol;   
+
+    if (rol !== 'admin') {
+              window.location.href = '/';
+       }
+
+})();
 
 (async () => {
 

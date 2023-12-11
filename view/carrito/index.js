@@ -167,9 +167,9 @@ let bolivares = 0;
 
 linkWsp.addEventListener("click", async (e) => {
     e.preventDefault();
-    // if (linkWsp.children[1].innerHTML === 'Agregar productos') {
-    //     window.location.href = '/products';
-    // }
+    if (linkWsp.children[1].innerHTML === 'Agregar productos') {
+        window.location.href = '/products';
+    }
  
   
     const precioAxio = await axios.get(`https://pydolarvenezuela-api.vercel.app/api/v1/dollar/unit/enparalelovzla`);
