@@ -21,6 +21,7 @@ const serviciosRouter = require('./controllers/servicios');
 const Paquetes = require('./models/paquetes');
 const paquetesRouter = require('./controllers/paquetes');
 const galeriaRouter = require('./controllers/galeria');
+const renvioRouter = require('./controllers/renvio');
 
 
 (async () => {
@@ -51,6 +52,10 @@ app.use('/galery', express.static(path.resolve('view', 'galeria')));
 app.use('/styles', express.static(path.resolve('view', 'styles')));
 app.use('/components', express.static(path.resolve('view', 'components')));
 app.use('/verify/:id/:token', express.static(path.resolve('view', 'verify')));
+
+
+app.use('/api/renvio', userExtractor, role,renvioRouter);
+app.use('/renvio/:email', express.static(path.resolve('view', 'renvio')));
 
 
 app.use('/utils', express.static(path.resolve(__dirname, 'utils')));

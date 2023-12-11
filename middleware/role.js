@@ -27,4 +27,4 @@ try {
 
 };
 
-module.exports = { role };
+module.exports = { role};

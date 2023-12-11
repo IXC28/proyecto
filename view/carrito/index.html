@@ -75,7 +75,47 @@
               <p>Realizar Pedido por WhatsApp</p>
             </a>
             </div>
-
+            <form id="datos-pago" class="shadow-md border-black border-2 border-opacity-30 w-full h-auto hidden">
+                <p class="p-pago w-full h-8 text-center font-semibold">Nombre: Maryori Zerpa</p>
+                <p class="p-pago w-full h-8 text-center font-semibold">Numero de cedula: 12501663</p>
+                <p class="p-pago w-full h-8 text-center font-semibold">Numero de Telefono: 04241914386</p>
+                <p class="p-pago w-full h-8 text-center font-semibold">Banco: Banesco</p>
+                <p class="p-pago w-full h-8 text-center font-semibold">Monto: <a id="monto" class="p-pago w-full h-auto text-center font-semibold"></a></p>
+                <div class="flex flex-col gap-2 text-zinc-900 p-4">
+                    <label for="ref-input" class="font-bold">
+                        Numero de Referencia <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                     type="ref"
+                     id="ref-input"
+                     name="ref-input"
+                     autocomplete="off"
+                     class="rounded-lg p-2 bg-zinc-100 focus:outline-indigo-700"
+                    >
+                </div>
+        
+                <div class="flex flex-col gap-2 text-zinc-900 p-4">
+                    <label for="phone-input" class="font-bold">
+                        Numero de Origen <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                     type="phone"
+                     id="phone-input"
+                     name="phone-input"
+                     autocomplete="off"
+                     class="rounded-lg p-2 bg-zinc-100 focus:outline-indigo-700"
+                    >
+                    <p id="error-text" class="text-sm text-red-600   "></p>
+                </div>
+                <div class="flex flex-col gap-2 text-zinc-900 p-4">
+                <button
+                id="datosBtn"
+                disabled
+                class="bg-sky-600 py-2 px-4 rounded-lg font-bold text-white hover:bg-sky-800 text-center transition ease-in-out disabled:opacity-50 disabled:cursor-not-allowed">
+                 Enviar Confirmacion
+               </button>
+                </div>
+            </form>
         </section>
 
         <div id="volver-productos" class="mt-10">
@@ -104,7 +144,10 @@
 
     </div>
 
-    
+    <div id="notification" class="fixed top-20 left-0 right-0 w-auto">
+
+    </div>
+
     <div id="contact-wsp" class="fixed bottom-4 right-4 flex flex-col items-center space-y-2">
 
     </div>
@@ -112,6 +155,7 @@
     <script src="/components/add.js"></script>
     <script src="/components/contactWsp.js"></script>
     <script src="/components/nav.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="../components/notification.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>

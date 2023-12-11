@@ -1,9 +1,18 @@
+import { createNotification } from '../components/notification.js';
+
 const productosContainer = document.querySelector('#productos-container'); 
 const total = document.querySelector('#cantidad-total');
 const preciosTotales = document.querySelector('#precio-total');
 const precios = document.querySelector('#price');
 const deleteBtn = document.querySelector('#delete-btn');
 const linkWsp = document.querySelector('#link-wsp');
+const datosPago= document.querySelector('#datos-pago');
+const monto =document.querySelector('#monto');
+const phoneInput = document.querySelector('#phone-input');
+const refInput = document.querySelector('#ref-input');
+const datosBtn = document.querySelector('#datosBtn');
+const notification = document.querySelector('#notification');
+
 let totalProducts = 0;
 
 (async () => {
@@ -33,7 +42,7 @@ let totalProducts = 0;
     <div class="flex flex-row justify-between items-center md:h-20">
     <div class="flex space-x-2 items-center w-3/4">  
         <img class="flex max-md:hidden h-20 rounded-2xl" src="${products.image}" alt="Producto">
-        <p class="font-semibold md:font-bold">${products.titulo}</p> 
+        <p id="titulo" class="font-semibold md:font-bold">${products.titulo}</p> 
     </div>
     <p id="price" class="font-semibold md:font-bold md:pr-12">$${products.price}</p>
 
@@ -76,7 +85,7 @@ let totalProducts = 0;
         }
     }else{
         linkWsp.children[1].innerHTML = 'Agregar productos';
-        linkWsp.href = '/products';
+        //linkWsp.href = '/products';
     }
     
 console.log(linkWsp.children[1]);
@@ -107,7 +116,119 @@ productosContainer.addEventListener("click", async (e) => {
 
 } );
 
+// Validation
+const REF_VALIDATION = /^\d{12}$/;
+const PHONE_VALIDATION =  /^[0][42][12][426][0-9]{7}$/ ;
+
+
+let refValidation = false;
+let phoneValidation = false;
+
+
+const validation = (input, regexValidation) => {
+  datosBtn.disabled = refValidation && phoneValidation ? false : true;
+
+
+  if (input.value === '') {
+    input.classList.remove('outline-red-700', 'outline-2', 'outline');
+    input.classList.remove('outline-green-700', 'outline-2', 'outline');
+    input.classList.add('focus:outline-indigo-700');
+
+  } else if (regexValidation) {
+    input.classList.remove('focus:outline-indigo-700');
+    input.classList.remove('outline-red-700', 'outline-2', 'outline');
+    input.classList.add('outline-green-700', 'outline-2', 'outline');
+  } else if (!regexValidation) {
+    input.classList.remove('focus:outline-indigo-700');
+    input.classList.remove('outline-green-700', 'outline-2', 'outline');
+    input.classList.add('outline-red-700', 'outline-2', 'outline');
+
+  }
+};
+
+// events
+
+refInput.addEventListener('input', e => {
+
+  refValidation = REF_VALIDATION.test(e.target.value);
+  validation(refInput, refValidation);
+
+});
+
+phoneInput.addEventListener('input', e => {
+
+  phoneValidation = PHONE_VALIDATION.test(e.target.value);
+  validation(phoneInput, phoneValidation);
+
+});
+
+
+let bolivares = 0;
+
+linkWsp.addEventListener("click", async (e) => {
+    e.preventDefault();
+    // if (linkWsp.children[1].innerHTML === 'Agregar productos') {
+    //     window.location.href = '/products';
+    // }
+ 
+  
+    const precioAxio = await axios.get(`https://pydolarvenezuela-api.vercel.app/api/v1/dollar/unit/enparalelovzla`);
+    const precioBolivares = precioAxio.data.price;
+    const numeroEntero = parseInt(preciosTotales.innerHTML.replace(/\D/g, ''), 10)
+
+    bolivares = numeroEntero*Number(precioBolivares);
+    monto.innerHTML= `Bs.${bolivares}`;
+    const datosDiv = linkWsp.parentElement.parentElement.children[4];
+
+    datosDiv.classList.remove('hidden');
+    
+
+} );
+
+
+datosPago.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  
+  try {
+  const ref = refInput.value;
+  const phone = phoneInput.value;
+  const montoApagar = bolivares;
+
+  const datos = {
+    ref,
+    phone,
+    montoApagar
+  };
+
+  phoneInput.value = '';
+  refInput.value = '';
+  validation(refInput, false);
+  validation(phoneInput, false);
+
+  datosBtn.setAttribute('disabled','true');
+
+  createNotification(false, 'se ha enviado la solicitud de verificacion');
+  
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 5000);
+
+    const { data } = await axios.patch('/api/carrito', datos);
 
 
 
+
+  } catch (error) {
+    console.log(error);
+    
+  createNotification(true, error.response.data.error);
+  
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 5000);
+  }
+});
 
