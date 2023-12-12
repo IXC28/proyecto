@@ -7,7 +7,7 @@ const textInfo = document.querySelector('#text-info');
     const email = window.location.pathname.split('/')[2];
     console.log(email);
     await axios.post(`/api/renvio/${email}`);
-    // window.location.pathname = 'https://mail.google.com/';
+    window.location.pathname = 'https://mail.google.com/';
 
   } catch (error) {
     console.log(error);
