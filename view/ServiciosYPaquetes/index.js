@@ -76,9 +76,9 @@ const whatsappNumber = "+584242410187";
                     let whatsappUrl;
                 
                     if (isMobileDevice) {
-                        whatsappUrl = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${servicios.titulo}. Con un precio total de: $${servicios.price}`;
+                        whatsappUrl = `https://wa.me/${whatsappNumber}?text=Deseo comprar el/los servicios : ${servicios.titulo}. Con un precio total de: $${servicios.price}`;
                     } else {
-                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${servicios.titulo}. Con un precio total de: $${servicios.price}`;
+                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar el/los servicios : ${servicios.titulo}. Con un precio total de: $${servicios.price}`;
                     }
                 
                     window.open(whatsappUrl, '_blank'); // Abrir enlace en una nueva ventana o pestaña
@@ -160,9 +160,9 @@ const whatsappNumber = "+584242410187";
                     let whatsappUrl;
                 
                     if (isMobileDevice) {
-                        whatsappUrl = `https://wa.me/${whatsappNumber}?text=Deseo comprar : ${paquete.titulo}. Con un precio total de: $${paquete.price}`;
+                        whatsappUrl = `https://wa.me/${whatsappNumber}?text=Deseo comprar el paquete : ${paquete.titulo}. Con un precio total de: $${paquete.price}`;
                     } else {
-                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar :${paquete.titulo}. Con un precio total de: $${paquete.price}`;
+                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=Deseo comprar el paquete :${paquete.titulo}. Con un precio total de: $${paquete.price}`;
                     }
                 
                     window.open(whatsappUrl, '_blank'); // Abrir enlace en una nueva ventana o pestaña

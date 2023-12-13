@@ -144,7 +144,7 @@ carritoRouter.patch('/', async (request, response) => {
             <h3 class="mb-4">Numero de telefono: ${phone}</h3>
             <h3 class="mb-4">Monto: Bs.${montoApagar}</h3>
 
-            <a href="${PAGE_URL}/renvio/${user.email}" class="h-auto w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg flex items-center">Renviar correo</a>
+            <a href="${PAGE_URL}/renvio/${user.email}" class="h-auto w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg flex items-center">Enviar Verificacion</a>
         </div>
     `,
 
